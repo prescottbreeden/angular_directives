@@ -1,6 +1,10 @@
 <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
 <ng-template #coursesList>
-  List of courses
+  <ul>
+    <li *ngFor="let course of courses; index as i; even as isEven">
+      {{ i }} - {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
+    </li>
+  </ul>
 </ng-template>
 <ng-template #noCourses>
   No courses yet
@@ -10,7 +14,7 @@
 <!-- or if the div you are going to show/hide is large enough to be costly -->
 
 <div [hidden]="courses.length == 0">
-  List of Courses 2
+  List of courses with attribute binding
 </div>
 <div [hidden]="courses.length > 0">
   No courses yet 2
@@ -26,3 +30,5 @@
   <div *ngSwitchCase="'list'">List View Content</div>
   <div *ngSwitchDefault>Otherwise</div>
 </div>
+
+<!-- switch cases should ideally have their own components or the html will look like ass -->
