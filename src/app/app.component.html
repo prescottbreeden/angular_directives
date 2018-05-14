@@ -1,4 +1,4 @@
-
+<!-- <button (click)="loadCourses()">Load Courses</button> -->
 <button class="btn btn-primary" (click)="onAdd()">Add a Course</button>
 <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
 <ng-template #coursesList>
